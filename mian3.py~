@@ -1,0 +1,37 @@
+import numpy as np
+from scipy.optimize import curve_fit
+import matplotlib.pyplot as plt
+
+# Puntos clave (en orden decreciente de y)
+x_data = np.array([28000, 28900, 29332, 29800, 30700, 31600])
+y_data = np.array([1, 10, 20, 40, 110, 220])
+
+# Definir la función exponencial
+def exponential_func(x, A, B, C):
+    return A * np.exp(B * x) + C
+
+# Ajustar la curva exponencial usando los puntos clave
+params, covariance = curve_fit(exponential_func, x_data, y_data)
+
+# Obtener los parámetros ajustados
+A, B, C = params
+print(f"A: {A}, B: {B}, C: {C}")
+
+# Generar valores para graficar la curva ajustada
+x_values = np.arange(28000, 31601)
+y_values = exponential_func(x_values, A, B, C)
+
+# Mostrar los coeficientes ajustados
+values = [[int(a), float(b)] for a, b in zip(x_values, y_values)]
+print(values)
+
+# Graficar la curva ajustada
+plt.figure(figsize=(10, 6))
+plt.plot(x_values, y_values, label="Curva exponencial ajustada", color="blue")
+plt.scatter(x_data, y_data, color="red", label="Puntos clave")
+plt.title("Curva exponencial ajustada (Interpolación exacta)")
+plt.xlabel("x (segundos)")
+plt.ylabel("y (valor)")
+plt.grid()
+plt.legend()
+plt.show()
