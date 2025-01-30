@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 # Parameters
 y0 = 1  # Initial intensity
 ymax = 200  # Final intensity
-start_time = 68460  # Tiempo de inicio
+start_time = 68460  # Start time
 duration = 900  # Duration in seconds
 
 # We calculate the constant k with a better formula
@@ -14,13 +14,13 @@ print(k)
 
 # exponential function
 def light_intensity(t):
-    return y0 * np.exp(k * t)  # We use a simple exponential to simulate the turning on of the light
+    return y0 * np.exp(k * t)  # Simple exponential to simulate the sunrise/sunset
 
 
 # Time from second start_time to start_time + duration
 time = np.linspace(start_time, start_time + duration)  # We use linspace to get 1000 points
 
-# Intensidad de la luz en función del tiempo
+# Light intensity as a function of time.
 intensity = light_intensity(time - start_time)  # We adjust t to start from 0
 # intensity = ymax - (intensity - y0)
 
