@@ -1,31 +1,31 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Parámetros
-y0 = 1  # Intensidad inicial
-ymax = 200  # Intensidad final
+# Parameters
+y0 = 1  # Initial intensity
+ymax = 200  # Final intensity
 start_time = 68460  # Tiempo de inicio
-duration = 900  # Duración en segundos
+duration = 900  # Duration in seconds
 
-# Calculamos la constante k con una mejor fórmula
+# We calculate the constant k with a better formula
 
-k = np.log(ymax / y0) / duration  # Ajustar k para que llegue a ymax en el tiempo deseado
+k = np.log(ymax / y0) / duration  # Adjust k so that it reaches ymax in the desired time
 print(k)
 
-# Función exponencial
+# exponential function
 def light_intensity(t):
-    return y0 * np.exp(k * t)  # Usamos una exponencial simple para simular el encendido de la luz
+    return y0 * np.exp(k * t)  # We use a simple exponential to simulate the turning on of the light
 
 
-# Tiempo desde el segundo start_time hasta start_time + duration
-time = np.linspace(start_time, start_time + duration)  # Usamos linspace para obtener 1000 puntos
+# Time from second start_time to start_time + duration
+time = np.linspace(start_time, start_time + duration)  # We use linspace to get 1000 points
 
 # Intensidad de la luz en función del tiempo
-intensity = light_intensity(time - start_time)  # Ajustamos t para empezar desde 0
+intensity = light_intensity(time - start_time)  # We adjust t to start from 0
 # intensity = ymax - (intensity - y0)
 
 print(intensity)
-# Graficar
+# Graph
 plt.plot(time, intensity)
 plt.title(" Sunrise exponential intensity control")
 plt.xlabel("Time (seconds)")

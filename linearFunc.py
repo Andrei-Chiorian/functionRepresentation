@@ -1,15 +1,16 @@
-import numpy as np
 import matplotlib.pyplot as plt
 
-# Parámetros
-y0 = 1  # Intensidad inicial
-ymax = 200  # Intensidad final
-start_time = 68460  # Tiempo de inicio
-duration = 900  # Duración en segundos
+# Parameters
+y0 = 1  # Initial intensity
+ymax = 200  # Final intensity
+start_time = 68460  # Start time
+duration = 900  # Duration in seconds
 
+# Sunrise curve
 slope = float(ymax - y0) / duration
 intercept = 1 - (slope * start_time)
 
+# Sunset curve
 # slope = float(ymax - y0) / -duration
 # intercept = ymax - (slope * start_time)
 

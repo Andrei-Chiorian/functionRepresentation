@@ -98,10 +98,10 @@ for month in input_data:
 
         sigma = [0.1, 0.1, 0.2, 0.1, 0.1, 0.1] if key == 'sunrise_duration' else [0.1, 0.1, 0.2, 0.3, 0.1, 0.1]
 
-        # Setting parameters with curve_fit
+        # setting parameters with curve_fit
         params, covariance = curve_fit(poly_func, x_data, y_data, method='trf', sigma=sigma)
 
-        # Append the coefficients of sunrise or sunset
+        # append the coefficients of sunrise or sunset
         month_results.append(params.tolist())
 
     # Append the coefficients of the month
